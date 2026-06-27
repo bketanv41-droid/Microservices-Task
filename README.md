@@ -1,4 +1,7 @@
 Microservices Docker Setup (Node.js + Docker + Compose)
+
+Git repo link: https://github.com/bketanv41-droid/Microservices-Task.git
+
 Project Overview
 
 This project contains a simple microservices architecture built using Node.js and containerized using Docker.
@@ -40,3 +43,54 @@ Start all microservices
 docker compose ps
 
 You should see all services in Up state.
+
+- Service Endpoints
+Service	URL
+User Service	http://localhost:3000
+Product Service	http://localhost:3001
+Order Service	http://localhost:3002
+Gateway Service	http://localhost:3003
+
+
+- Basic Troubleshooting
+Containers not starting
+docker compose logs
+
+Check for:
+
+missing dependencies
+wrong start script
+port conflicts
+Port already in use
+
+Change ports in docker-compose.yml:
+
+ports:
+  - "3000:3000"
+  - Build issues
+
+Rebuild cleanly:
+
+docker compose down --remove-orphans
+docker compose up --build
+Service not reachable
+
+Ensure:
+
+container is running (docker ps)
+correct port mapping
+service is listening on 0.0.0.0, not localhost
+
+
+📂 Final Project Structure
+submission/
+├── user-service/
+│   └── Dockerfile
+├── product-service/
+│   └── Dockerfile
+├── order-service/
+│   └── Dockerfile
+├── gateway-service/
+│   └── Dockerfile
+├── docker-compose.yml
+└── README.md
