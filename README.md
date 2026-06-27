@@ -1,68 +1,42 @@
-# Microservices-Task
+Microservices Docker Setup (Node.js + Docker + Compose)
+Project Overview
 
-## Overview
-This document provides details on testing various services after running the `docker-compose` file. These services include User, Product, Order, and Gateway Services. Each service has its own endpoints for testing purposes.
+This project contains a simple microservices architecture built using Node.js and containerized using Docker.
+It includes the following services:
 
----
+-User Service (Port 3000)
+-Product Service (Port 3001)
+-Order Service (Port 3002)
+-Gateway Service (Port 3003)
 
-## Services and Endpoints
+All services are orchestrated using Docker Compose.
 
-### **User Service**
-- **Base URL:** `http://localhost:3000`
-- **Endpoints:**
-  - **List Users:**  
-    ```
-    curl http://localhost:3000/users
-    ```
-    Or open in your browser: [http://localhost:3000/users](http://localhost:3000/users)
+- Prerequisites
 
----
+Make sure you have installed:
 
-### **Product Service**
-- **Base URL:** `http://localhost:3001`
-- **Endpoints:**
-  - **List Products:**  
-    ```
-    curl http://localhost:3001/products
-    ```
-    Or open in your browser: [http://localhost:3001/products](http://localhost:3001/products)
+Docker → https://www.docker.com/
+Docker Compose
+Node.js (optional for local testing)
 
----
+-Setup Instructions
+1. Clone the Repository
+git clone <your-forked-repo-url>
+cd submission
 
-### **Order Service**
-- **Base URL:** `http://localhost:3002`
-- **Endpoints:**
-  - **List Orders:**  
-    ```
-    curl http://localhost:3002/orders
-    ```
-    Or open in your browser: [http://localhost:3002/orders](http://localhost:3002/orders)
+2. Build and Run All Services
 
----
+Run the following command from the root folder (where docker-compose.yml is located):
 
-### **Gateway Service**
-- **Base URL:** `http://localhost:3003/api`
-- **Endpoints:**
-  - **Users:**  
-    ```
-    curl http://localhost:3003/api/users
-    ```
-  - **Products:**  
-    ```
-    curl http://localhost:3003/api/products
-    ```
-  - **Orders:**  
-    ```
-    curl http://localhost:3003/api/orders
-    ```
+docker compose up --build
 
----
+This will:
 
-## Instructions
-1. Start all services using the `docker-compose` file:
-   ```
-   docker-compose up
-   ```
-2. Once the services are running, use the above endpoints to verify the functionality.
+Build all Docker images
+Create containers
+Start all microservices
 
-Happy testing!
+3. Verify Running Containers
+docker compose ps
+
+You should see all services in Up state.
